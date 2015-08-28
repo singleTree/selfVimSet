@@ -99,7 +99,9 @@
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
     set iskeyword-=-                    " '-' is an end of word designator
-
+    " ag setting
+    let g:ag_working_path_mode='r'
+    
     "解决乱码
     set langmenu=zh_CN
     let $LANG = 'zh_CN.UTF-8'
@@ -115,7 +117,9 @@
 
     "关闭拼写检查
     set nospell
-
+    set nohlsearch
+    "设置默认全屏幕
+    autocmd GUIEnter * simalt ~x
     " 设置字体大小
     set guifont=Andale_Mono:h11,Menlo:h11,Consolas:h11,Courier_New:h11
     " Instead of reverting the cursor to the last position in the buffer, we
@@ -169,10 +173,10 @@
         let g:solarized_visibility="normal"
         color solarized             " Load a colorscheme
     endif
-
+    colorscheme solarized
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
-
+	
     set cursorline                  " Highlight current line
 
     highlight clear SignColumn      " SignColumn should match background
