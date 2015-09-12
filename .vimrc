@@ -11,7 +11,6 @@
             return  (has('win16') || has('win32') || has('win64'))
         endfunction
     " }
-
     " Basics {
         set nocompatible        " Must be first line
         if !WINDOWS()
@@ -84,7 +83,7 @@
     " Most prefer to automatically switch to the current file directory when
     " a new buffer is opened; to prevent this behavior, add the following to
     " your .vimrc.before.local file:
-    "   let g:spf13_no_autochdir = 1
+       "let g:spf13_no_autochdir = 1
     if !exists('g:spf13_no_autochdir')
         autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
         " Always switch to the current file directory
@@ -110,14 +109,21 @@
     "禁止生成临时文件
     set nobackup
     set noswapfile
+
     " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
     set mouse=a
     set selection=exclusive
     set selectmode=mouse,key
-
+    " <c tab> 切换2个buffer
+    "let g:miniBufExplMapCTabSwitchBufs = 1
+    "let g:miniBufExplorerMoreThanOne=0
     "关闭拼写检查
     set nospell
     set nohlsearch
+    set encoding=utf-8
+    set fileencodings=ucs-bom,utf-8,cp936
+    set fileencoding=gb2312
+    set termencoding=utf-8
     "设置默认全屏幕
     autocmd GUIEnter * simalt ~x
     " 设置字体大小
@@ -176,7 +182,6 @@
     colorscheme solarized
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
-	
     set cursorline                  " Highlight current line
 
     highlight clear SignColumn      " SignColumn should match background
@@ -473,6 +478,8 @@
 
     " Ctags {
         set tags=./tags;/,~/.vimtags
+        set tags+=E:/workspace/XianNi/XianNi/trunk/xianni/frameworks/cocos2d-x/cocos/scripting/lua-bindings/auto/tags
+        set tags+=E:/workspace/XianNi/XianNi/trunk/xianni/assets/tags
 
         " Make tags placed in .git/tags file available in all levels of a repository
         let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
@@ -568,7 +575,7 @@
             let g:ctrlp_custom_ignore = {
                 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
                 \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
-
+            
             if executable('ag')
                 let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
             elseif executable('ack-grep')
@@ -584,6 +591,7 @@
             if exists("g:ctrlp_user_command")
                 unlet g:ctrlp_user_command
             endif
+            "let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
             let g:ctrlp_user_command = {
                 \ 'types': {
                     \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
@@ -676,7 +684,8 @@
             let g:neocomplete#enable_auto_delimiter = 1
             let g:neocomplete#max_list = 15
             let g:neocomplete#force_overwrite_completefunc = 1
-
+            "关闭自动补齐
+            "let g:neocomplete#disable_auto_complete = 1
 
             " Define dictionary.
             let g:neocomplete#sources#dictionary#dictionaries = {
