@@ -706,8 +706,13 @@
             let g:neocomplete#enable_auto_delimiter = 1
             let g:neocomplete#max_list = 15
             let g:neocomplete#force_overwrite_completefunc = 1
+<<<<<<< HEAD
             "关闭自动补齐
             let g:neocomplete#disable_auto_complete = 1
+=======
+	    " 关闭自动补齐
+	    let g:neocomplete#disable_auto_complete = 1
+>>>>>>> 32cfd7c1e9dcb4179268536659ab10f72a7fe862
 
             " Define dictionary.
             let g:neocomplete#sources#dictionary#dictionaries = {
