@@ -77,8 +77,8 @@
         Bundle 'gmarik/vundle'
         Bundle 'MarcWeber/vim-addon-mw-utils'
         Bundle 'tomtom/tlib_vim'
-        Bundle 'rking/ag.vim'
-        Bundle 'ggreer/the_silver_searcher'
+        "Bundle 'rking/ag.vim'
+        "Bundle 'ggreer/the_silver_searcher'
         if executable('ag')
             Bundle 'mileszs/ack.vim'
             let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
@@ -93,7 +93,8 @@
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
+        " let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
+        let g:spf13_bundle_groups=['general', 'writing', 'youcompleteme', 'programming', 'python', 'javascript', 'html', 'misc',]
     endif
 
     " To override all the included bundles, add the following to your
@@ -105,7 +106,7 @@
         if count(g:spf13_bundle_groups, 'general')
             Bundle 'scrooloose/nerdtree'
             Bundle 'altercation/vim-colors-solarized'
-            "Bundle 'spf13/vim-colors'
+            Bundle 'spf13/vim-colors'
             Bundle 'tpope/vim-surround'
             Bundle 'tpope/vim-repeat'
             Bundle 'jiangmiao/auto-pairs'
@@ -124,8 +125,8 @@
             Bundle 'powerline/fonts'
             "Bundle 'bling/vim-bufferline'
             "Bundle 'minibufexplorerpp'
-            "◊‘∂®“Â≈‰÷√
-            Bundle 'xolox/vim-lua-ftplugin'
+            "Ëá™ÂÆö‰πâÈÖçÁΩÆ
+            "Bundle 'xolox/vim-lua-ftplugin'
             Bundle 'Lokaltog/vim-easymotion'
             Bundle 'jistr/vim-nerdtree-tabs'
             "Bundle 'flazz/vim-colorschemes'

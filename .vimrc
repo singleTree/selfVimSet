@@ -637,7 +637,6 @@
     " YouCompleteMe {
         if count(g:spf13_bundle_groups, 'youcompleteme')
             let g:acp_enableAtStartup = 0
-
             " enable completion from tags
             let g:ycm_collect_identifiers_from_tags_files = 1
 
@@ -645,7 +644,30 @@
             let g:UltiSnipsExpandTrigger = '<C-j>'
             let g:UltiSnipsJumpForwardTrigger = '<C-j>'
             let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
+            " 自定义设置
+            let g:ycm_seed_identifiers_with_syntax=1	" 语法关键字补全
+            "在注释输入中也能补全
+            let g:ycm_complete_in_comments = 1
+            "在字符串输入中也能补全
+            let g:ycm_complete_in_strings = 1
+            "注释和字符串中的文字也会被收入补全
+            let g:ycm_collect_identifiers_from_comments_and_strings = 0
+            let g:ycm_min_num_of_chars_for_completion=2	" 从第2个键入字符就开始罗列匹配项
+            nnoremap <F11> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+            let g:ycm_global_ycm_extra_conf = 'C:/Users/admin/.spf13-vim-3/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+            let g:ycm_semantic_triggers =  {
+                        \   'c' : ['->', '.'],
+                        \   'objc' : ['->', '.'],
+                        \   'ocaml' : ['.', '#'],
+                        \   'cpp,objcpp' : ['->', '.', '::'],
+                        \   'perl' : ['->'],
+                        \   'php' : ['->', '::'],
+                        \   'cs,java,javascript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+                        \   'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
+                        \   'ruby' : ['.', '::'],
+                        \   'lua' : ['.', ':'],
+                        \   'erlang' : [':'],
+                        \} 
             " Enable omni completion.
             autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
             autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -685,7 +707,7 @@
             let g:neocomplete#max_list = 15
             let g:neocomplete#force_overwrite_completefunc = 1
             "关闭自动补齐
-            "let g:neocomplete#disable_auto_complete = 1
+            let g:neocomplete#disable_auto_complete = 1
 
             " Define dictionary.
             let g:neocomplete#sources#dictionary#dictionaries = {
